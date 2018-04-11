@@ -1,4 +1,5 @@
 # EB5208_Geospatial_Analytics
 Working Repository for EB5208 Geospatial Analytics Project
-I don't think there's a need for separate branches as the R code is probably not so much. 
-Of course, you are welcome to create your own branches. 
+
+Do place all analytics code here so that we are able to retrieve it easily for report later on. 
+Also, to minimize repetition of work if someone else in the group has already done a certain task. 
