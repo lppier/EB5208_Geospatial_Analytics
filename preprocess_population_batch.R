@@ -18,7 +18,7 @@ preprocess_year <- function(file_path) {
   year_2000 <- remove_commas(year_2000)
   
   # assign row 2 as the header
-  for (i in 1:22) {
+  for (i in 1:ncol(year_2000)) {
     colnames(year_2000)[i] <- as.character(year_2000[2,i])
   }
   
@@ -28,7 +28,10 @@ preprocess_year <- function(file_path) {
   
   # remove unnecessary columns
   year_2000 <- year_2000[,-2]
-  year_2000 <- year_2000[,-21:-24]
+  
+  # there should only be 21 columns
+  if (ncol(year_2000) > 21)
+    year_2000 <- year_2000[,-21:-ncol(year_2000)]
   
   # rename some columns 
   year_2000$"85_and_over" <- year_2000$"85 & Over"
@@ -55,7 +58,7 @@ preprocess_year <- function(file_path) {
   return (year_2000)
 }
 
-files <- list.files(path="C:/Users/pierl/OneDrive/Documents/R_Projects/Geospatial_CA/original/", pattern="*.csv", full.names=T, recursive=FALSE)
+files <- list.files(path="C:/Users/pierl/OneDrive/Documents/R_Projects/EB5208_Geospatial_Analytics/original/", pattern="*.csv", full.names=T, recursive=FALSE)
 lapply(files, function(x) {
   out <- preprocess_year(x)
 })
