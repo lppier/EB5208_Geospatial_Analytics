@@ -53,7 +53,7 @@ preprocess_year <- function(file_path) {
   
   df[is.nan(df)] <- 0
   
-  new_file_path <- sub("original", "processed", file_path)
+  new_file_path <- sub("original", "processed_subzone", file_path)
   write.csv(df, file=new_file_path)
   return (df)
 }
